@@ -1,0 +1,32 @@
+{
+	"name": "Python vscode Docker",
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"context": "..",
+		"image": "python-vscode-docker",
+	},
+	"runArgs": [
+		"--name", "python-vscode"
+	],
+	"containerEnv": {
+		// "FLASK_APP": "app",
+		// "FLASK_RUN_PORT": "5010",
+		// "FLASK_ENV": "development"
+	},
+	// "forwardPorts": [5010],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python",
+		"mohsen1.prettify-json"
+	]
+
+}
