@@ -1,15 +1,16 @@
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
 {
 	"name": "Python vscode Docker",
 	"build": {
 		"dockerfile": "../Dockerfile",
 		"context": "..",
-		"image": "python-vscode-docker",
+		"image": "python-vscode-docker",	// This is OK
 	},
 	"runArgs": [
 		"--name", "python-vscode"
 	],
 	"containerEnv": {
-		// "FLASK_APP": "app",
+		// "FLASK_APP": "myapp",
 		// "FLASK_RUN_PORT": "5010",
 		// "FLASK_ENV": "development"
 	},
@@ -26,7 +27,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
-		"mohsen1.prettify-json"
+		"mohsen1.prettify-json",
+		"ms-azuretools.vscode-docker"
+
 	]
 
 }
