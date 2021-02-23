@@ -8,7 +8,7 @@ COPY requirements.txt /workspaces/${PROJ}/
 RUN pip install -r /workspaces/${PROJ}/requirements.txt
 
 COPY . /workspaces/${PROJ}
-RUM pip install -e .
+RUN pip install -e .
 
 # EXPOSE 5000
 # ENV FLASK_APP app
