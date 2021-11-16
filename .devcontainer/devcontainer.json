@@ -10,15 +10,13 @@
 		"--name", "python-vscode"
 	],
 	"containerEnv": {
-		// "FLASK_APP": "myapp",
-		// "FLASK_RUN_PORT": "5010",
-		// "FLASK_ENV": "development"
+		// "FLASK_APP": "app",
+		"FLASK_ENV": "development"
 	},
-	// "forwardPorts": [5010],
+	// "forwardPorts": [5000],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
