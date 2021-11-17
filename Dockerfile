@@ -4,6 +4,11 @@ ENV PROJ python-vscode-docker
 
 WORKDIR /workspaces/${PROJ}
 
+# RUN apt-get update \
+# && apt install -y \
+#     vim \
+# && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 COPY requirements.txt /workspaces/${PROJ}/
 RUN pip install -r /workspaces/${PROJ}/requirements.txt
 
