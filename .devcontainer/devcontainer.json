@@ -4,7 +4,6 @@
 	"build": {
 		"dockerfile": "../Dockerfile",
 		"context": "..",
-		"image": "python-vscode-docker",	// This is OK
 	},
 	"runArgs": [
 		"--name", "python-vscode"
