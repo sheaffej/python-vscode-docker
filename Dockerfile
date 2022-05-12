@@ -1,18 +1,16 @@
-FROM python:3.8-buster
+FROM python:3.10-buster
 
-ENV PROJ python-vscode-docker
-
-WORKDIR /workspaces/${PROJ}
+WORKDIR /app
 
 # RUN apt-get update \
 # && apt install -y \
 #     vim \
 # && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY requirements.txt /workspaces/${PROJ}/
-RUN pip install -r /workspaces/${PROJ}/requirements.txt
+COPY requirements.txt /app/
+RUN pip install -r /app/requirements.txt
 
-COPY . /workspaces/${PROJ}
+COPY . /app
 RUN pip install -e .
 
 # EXPOSE 5000

@@ -3,11 +3,15 @@
 	"name": "Python vscode Docker",
 	"build": {
 		"dockerfile": "../Dockerfile",
-		"context": "..",
+		"context": ".."
 	},
 	"runArgs": [
 		"--name", "python-vscode"
 	],
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
+    "workspaceFolder": "/app",
+
 	"containerEnv": {
 		// "FLASK_APP": "app",
 		"FLASK_ENV": "development"
@@ -18,7 +22,7 @@
 	"settings": { 
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true,
+		"python.linting.pylintEnabled": true
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -26,7 +30,6 @@
 		"ms-python.python",
 		"mohsen1.prettify-json",
 		"ms-azuretools.vscode-docker"
-
 	]
 
 }
