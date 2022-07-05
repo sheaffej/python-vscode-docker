@@ -29,7 +29,8 @@
 	"extensions": [
 		"ms-python.python",
 		"mohsen1.prettify-json",
-		"ms-azuretools.vscode-docker"
+		"ms-azuretools.vscode-docker",
+		"njpwerner.autodocstring"
 	]
 
 }
