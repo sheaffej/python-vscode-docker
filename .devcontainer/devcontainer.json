@@ -6,31 +6,37 @@
 		"context": ".."
 	},
 	"runArgs": [
-		"--name", "python-vscode"
+		"--name", "python-vscode",
+        "--gpus", "all",
+        "--mount", "type=volume,src=airwaves-nfs,dst=/mnt/airwaves,volume-driver=local,volume-opt=type=nfs,volume-opt=device=:/AppData/airwaves,\"volume-opt=o=addr=172.16.1.1,nfsvers=4,rw\"",
+        "-p", "3000:3000", "-p", "5100:5100"
 	],
 
     "workspaceMount": "source=${localWorkspaceFolder},target=/app,type=bind",
     "workspaceFolder": "/app",
 
 	"containerEnv": {
-		// "FLASK_APP": "app",
-		"FLASK_ENV": "development"
-	},
-	// "forwardPorts": [5000],
+        "PYTHONDONTWRITEBYTECODE": "1",
+		"FLASK_APP": "airwaves.app:app",
+        "DB_PASS": "blahblahblah",
+        "HTTP_PROXY": "http://vpn.boltz.cc:8888"
+    },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"python.pythonPath": "/usr/local/bin/python",
-		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true
-	},
+    "customizations": {
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "python.pythonPath": "/usr/local/bin/python"
+            },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"ms-python.python",
-		"mohsen1.prettify-json",
-		"ms-azuretools.vscode-docker",
-		"njpwerner.autodocstring"
-	]
-
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-python.python",
+                "mohsen1.prettify-json",
+                "ms-azuretools.vscode-docker",
+                "ms-python.flake8",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
 }

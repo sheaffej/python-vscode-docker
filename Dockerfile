@@ -1,4 +1,4 @@
-FROM python:3.10-buster
+FROM python:3.13.2-bookworm
 
 WORKDIR /app
 
@@ -12,8 +12,3 @@ RUN pip install -r /app/requirements.txt
 
 COPY . /app
 RUN pip install -e .
-
-# EXPOSE 5000
-# ENV FLASK_APP app
-# ENV FLASK_RUN_PORT 5010
-# ENV FLASK_ENV development
